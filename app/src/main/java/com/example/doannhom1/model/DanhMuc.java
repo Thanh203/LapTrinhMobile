@@ -13,6 +13,9 @@ public class DanhMuc implements Serializable {
         Anh = anh;
     }
 
+    public DanhMuc() {
+    }
+
     //
 
     public int getIdDanhMuc() {
