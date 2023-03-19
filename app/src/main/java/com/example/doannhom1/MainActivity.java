@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.mnDanhMuc:
                         getSupportActionBar().setTitle("Danh mục");
-                        Intent i = new Intent(MainActivity.this, DanhMucActivity.class);
-                        startActivity(i);
+                        //Intent i = new Intent(MainActivity.this, DanhMucActivity.class);
+                        //startActivity(i);
                         loadFragment(new DanhMucFragment());
                         return true;
                     case R.id.mnCaNhan:

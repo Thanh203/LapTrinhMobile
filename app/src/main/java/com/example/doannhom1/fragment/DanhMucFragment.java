@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewbinding.ViewBindings;
 
 
 import android.view.LayoutInflater;
@@ -25,7 +27,7 @@ import java.util.ArrayList;
  * Use the {@link TrangChuFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DanhMucFragment extends Fragment {
+public class DanhMucFragment extends Fragment implements DanhMucAdapter.DanhMucCallback {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,14 +69,30 @@ public class DanhMucFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+    }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_danh_muc, container, false);
+        rvListC = view.findViewById(R.id.rvList2);
+        //
+        LoadData();
+        danhMucAdapter = new DanhMucAdapter(lstDanhMuc, this);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3);
+        rvListC.setAdapter(danhMucAdapter);
+        rvListC.setLayoutManager(gridLayoutManager);
+        return view;
+    }
+    @Override
+    public void onItemClick(String name) {
+        Intent i = new Intent(getContext(), DetailDanhMucActivity.class);
+        i.putExtra("TenDanhMuc", name);
+        startActivity(i);
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_danh_muc, container, false);
-    }
+
     void LoadData(){
         lstDanhMuc = new ArrayList<>();
         lstDanhMuc.add( new DanhMuc(1, "Công thức 1","Thanh123.jpg"));
