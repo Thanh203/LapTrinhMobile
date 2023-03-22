@@ -10,18 +10,20 @@
 
 
     <FrameLayout
-        android:id="@+id/main_fragment"
+        android:id="@+id/danh_muc_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="parent"
+
         />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvList2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="60dp"/>
 
 </FrameLayout>
