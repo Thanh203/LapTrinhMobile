@@ -1,5 +1,6 @@
 package com.example.doannhom1.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,9 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.doannhom1.DetailDanhMucActivity;
+import com.example.doannhom1.MainActivity;
 import com.example.doannhom1.R;
 import com.example.doannhom1.model.DanhMuc;
 import com.example.doannhom1.model.DanhMucAdapter;
+import com.example.doannhom1.model.DanhMucDB;
 import com.example.doannhom1.model.DanhMucData;
 
 import java.util.ArrayList;
@@ -41,6 +44,7 @@ public class DanhMucFragment extends Fragment implements DanhMucAdapter.DanhMucC
     RecyclerView rvListC;
     ArrayList<DanhMuc> lstDanhMuc;
     DanhMucAdapter danhMucAdapter;
+    DanhMucDB danhMucDB;
     public DanhMucFragment() {
         // Required empty public constructor
     }
@@ -78,7 +82,9 @@ public class DanhMucFragment extends Fragment implements DanhMucAdapter.DanhMucC
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_danh_muc, container, false);
         rvListC = view.findViewById(R.id.rvList2);
-        //
+
+//        danhMucDB = new DanhMucDB(getContext());
+//        lstDanhMuc = danhMucDB.getDanhMuc();
         lstDanhMuc = DanhMucData.getDanhMuc();
         danhMucAdapter = new DanhMucAdapter(lstDanhMuc, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3);
@@ -87,9 +93,10 @@ public class DanhMucFragment extends Fragment implements DanhMucAdapter.DanhMucC
         return view;
     }
     @Override
-    public void onItemClick(String name) {
+    public void onItemClick(String name, String img) {
         Intent i = new Intent(getContext(), DetailDanhMucActivity.class);
         i.putExtra("TenDanhMuc", name);
+        i.putExtra("Anh", img);
         startActivity(i);
     }
 

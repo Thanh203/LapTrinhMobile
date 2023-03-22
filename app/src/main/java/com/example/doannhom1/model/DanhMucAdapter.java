@@ -47,7 +47,7 @@ public class DanhMucAdapter extends RecyclerView.Adapter<DanhMucAdapter.DanhMucV
         holder.imImage.setImageBitmap(Utils.converToBitmapFromAssets(context, item.getAnh()));
         holder.tvName.setText(item.getTenDanhMuc());
         //Set su kien
-        holder.itemView.setOnClickListener(view -> danhMucCallback.onItemClick(item.getTenDanhMuc()));
+        holder.itemView.setOnClickListener(view -> danhMucCallback.onItemClick(item.getTenDanhMuc(), item.getAnh()));
     }
 
     @Override
@@ -65,6 +65,6 @@ public class DanhMucAdapter extends RecyclerView.Adapter<DanhMucAdapter.DanhMucV
         }
     }
     public interface DanhMucCallback{
-        void onItemClick(String name);
+        void onItemClick(String name, String img);
     }
 }

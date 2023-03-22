@@ -9,10 +9,10 @@ public class MonAn implements Serializable {
     private String NoiDung;
     private String Video;
     private String Anh;
-    private String IDDanhMuc;
+    private int IDDanhMuc;
     //
 
-    public MonAn(int IDMonAn, String tenMonAn, String nguyenLieu, String noiDung, String video, String anh, String IDDanhMuc) {
+    public MonAn(int IDMonAn, String tenMonAn, String nguyenLieu, String noiDung, String video, String anh, int IDDanhMuc) {
         this.IDMonAn = IDMonAn;
         TenMonAn = tenMonAn;
         NguyenLieu = nguyenLieu;
@@ -71,11 +71,11 @@ public class MonAn implements Serializable {
         Anh = anh;
     }
 
-    public String getIDDanhMuc() {
+    public int getIDDanhMuc() {
         return IDDanhMuc;
     }
 
-    public void setIDDanhMuc(String IDDanhMuc) {
+    public void setIDDanhMuc(int IDDanhMuc) {
         this.IDDanhMuc = IDDanhMuc;
     }
 }

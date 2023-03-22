@@ -1,5 +1,6 @@
 package com.example.doannhom1.model;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 
 public class DanhMucDB {
     String TenDanhMuc = "DanhMucDB.db";
-    String Anh = "DanhMucDB.db";
+    String Anh = "_img";
     Context context;
     SQLiteDatabase db;
 
@@ -31,7 +32,7 @@ public class DanhMucDB {
     public ArrayList<DanhMuc> getDanhMuc(){
         ArrayList<DanhMuc> tmp = new ArrayList<>();
         String sql ="SELECT * FROM tblDanhMuc";
-        db =openDB();
+        db = openDB();
         Cursor cursor =db.rawQuery(sql, null);
         while (cursor.moveToNext()){
             int IdDanhMuc = cursor.getInt(0);
@@ -43,4 +44,32 @@ public class DanhMucDB {
         db.close();
         return tmp;
     }
+    public int countDanhMuc(){
+        String sql = "SELECT * FROM tblDanhMuc";
+        db = openDB();
+        Cursor cursor = db.rawQuery(sql, null);
+        int count = cursor.getCount();
+        return count;
+    }
+    public void insertDanhMuc(String tenDanhMuc, String anh){
+        db = openDB();
+        ContentValues cv = new ContentValues();
+        cv.put("TENDANHMUC", tenDanhMuc);
+        cv.put("ANH", anh);
+        db.insert("tblDanhMuc", null, cv);
+        db.close();
+    }
+//    public void updateDanhMuc(int idDanhMuc, String newTenDanhMuc, String newAnh){
+//        db = openDB();
+//        ContentValues cv = new ContentValues();
+//        cv.put("TENDANHMUC", newTenDanhMuc);
+//        cv.put("ANH", newAnh);
+//        db.update("tblDanhMuc", cv, "ID=" + idDanhMuc, null);
+//        db.close();
+//    }
+//    public void deleteDanhMuc(int idDanhMuc, String newTenDanhMuc, String newAnh){
+//        db = openDB();
+//        db.delete("tblDanhMuc", "ID=" + idDanhMuc, null);
+//        db.close();
+//    }
 }

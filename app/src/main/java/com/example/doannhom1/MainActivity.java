@@ -54,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.mnDanhMuc:
                         getSupportActionBar().setTitle("Danh mục");
-                        //Intent i = new Intent(MainActivity.this, DanhMucActivity.class);
-                        //startActivity(i);
                         loadFragment(new DanhMucFragment());
                         return true;
                     case R.id.mnCaNhan:
@@ -72,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
     //Ham load Fragment
     void loadFragment (Fragment fmNew)
     {
-        FragmentTransaction fmTran= getSupportFragmentManager().beginTransaction();
-        fmTran.replace(R.id.main_fragment, fmNew);
-        fmTran.addToBackStack(null);
-        fmTran.commit();
+        FragmentTransaction fmCN= getSupportFragmentManager().beginTransaction();
+        fmCN.replace(R.id.main_fragment, fmNew);
+        fmCN.addToBackStack(null);
+        fmCN.commit();
     }
 }
