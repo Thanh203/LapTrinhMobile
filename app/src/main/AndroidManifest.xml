@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".model.MonAnData"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,8 +13,11 @@
         android:theme="@style/Theme.DoAnNhom1"
         tools:targetApi="31">
         <activity
-            android:name=".DetailDanhMucActivity"
+            android:name=".DetailMonAnActivity"
             android:exported="false" />
+        <activity
+            android:name=".DetailDanhMucActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -1,21 +1,28 @@
 package com.example.doannhom1.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.doannhom1.R;
+import com.example.doannhom1.model.MonAn;
+import com.example.doannhom1.model.MonAnDB;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CaNhanFragment#newInstance} factory method to
+ * Use the {@link NguyenLieuFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CaNhanFragment extends Fragment {
+public class NguyenLieuFragment extends Fragment  {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +33,9 @@ public class CaNhanFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CaNhanFragment() {
+
+
+    public NguyenLieuFragment() {
         // Required empty public constructor
     }
 
@@ -36,12 +45,11 @@ public class CaNhanFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CaNhanFragment.
+     * @return A new instance of fragment NguyenLieuFragment.
      */
-
     // TODO: Rename and change types and number of parameters
-    public static CaNhanFragment newInstance(String param1, String param2) {
-        CaNhanFragment fragment = new CaNhanFragment();
+    public static NguyenLieuFragment newInstance(String param1, String param2) {
+        NguyenLieuFragment fragment = new NguyenLieuFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,6 +70,10 @@ public class CaNhanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ca_nhan, container, false);
+        View view =  inflater.inflate(R.layout.fragment_nguyen_lieu, container, false);
+
+        return view;
     }
+
+
 }

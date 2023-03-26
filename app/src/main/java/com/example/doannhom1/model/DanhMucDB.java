@@ -8,8 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 
 public class DanhMucDB {
-    String TenDanhMuc = "DanhMucDB.db";
-    String Anh = "_img";
+    String dbName = "DanhMucDB.db";
     Context context;
     SQLiteDatabase db;
 
@@ -18,7 +17,7 @@ public class DanhMucDB {
     }
     //code first
     public SQLiteDatabase openDB(){
-        return context.openOrCreateDatabase(TenDanhMuc, Context.MODE_PRIVATE, null);
+        return context.openOrCreateDatabase(dbName, Context.MODE_PRIVATE, null);
     }
     public void createTable(){
         String sql = "CREATE TABLE IF NOT EXISTS tblDanhMuc(" +

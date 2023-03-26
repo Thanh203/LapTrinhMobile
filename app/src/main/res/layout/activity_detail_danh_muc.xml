@@ -4,23 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailDanhMucActivity"
-    android:orientation="vertical">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/tvDetailDanhMuc"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    android:textSize="50sp"/>
-    <ImageView
-        android:id="@+id/ivDanhMuc"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_margin="6dp"
-        android:baselineAlignBottom="false"
-        android:src="@drawable/ic_launcher_background" />
+    android:orientation="vertical"
+    tools:context=".DetailDanhMucActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListMonAn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </LinearLayout>

@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                         getSupportActionBar().setTitle("Cá nhân");
                         loadFragment(new CaNhanFragment());
                         return true;
+
                 }
                 return true;
             }

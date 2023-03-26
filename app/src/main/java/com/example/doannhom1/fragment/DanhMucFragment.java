@@ -83,7 +83,7 @@ public class DanhMucFragment extends Fragment implements DanhMucAdapter.DanhMucC
         View view = inflater.inflate(R.layout.fragment_danh_muc, container, false);
         rvListC = view.findViewById(R.id.rvList2);
 
-//        danhMucDB = new DanhMucDB(getContext());
+//        danhMucDB = new DanhMucDB(getActivity());
 //        lstDanhMuc = danhMucDB.getDanhMuc();
         lstDanhMuc = DanhMucData.getDanhMuc();
         danhMucAdapter = new DanhMucAdapter(lstDanhMuc, this);
@@ -99,7 +99,4 @@ public class DanhMucFragment extends Fragment implements DanhMucAdapter.DanhMucC
         i.putExtra("Anh", img);
         startActivity(i);
     }
-
-
-
 }
