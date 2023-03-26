@@ -36,8 +36,6 @@ public class DetailMonAnActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_mon_an);
         mnBottom = findViewById(R.id.navMonAn);
-        //mtabLayout = findViewById(R.id.navMonAn);
-        //mViewPager =findViewById(R.id.view_pager);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -46,7 +44,6 @@ public class DetailMonAnActivity extends AppCompatActivity {
         String img = getIntent().getStringExtra("Anh");
         //
         getSupportActionBar().setTitle(name);
-        //tvTenMonAnC.setText(name);
         ivAnhMonAnC.setImageBitmap(Utils.converToBitmapFromAssets(getBaseContext(), img));
         mnBottom.setOnItemSelectedListener(getListener());
     }
@@ -55,8 +52,6 @@ public class DetailMonAnActivity extends AppCompatActivity {
         return new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                //tvNoiDungC = findViewById(R.id.tvNoiDung);
-//                vvVideoC = findViewById(R.id.vvVideo);
                 switch (item.getItemId()) {
                     case R.id.mnNguyenLieu:
                         String nguyenLieu = getIntent().getStringExtra("NguyenLieu");
