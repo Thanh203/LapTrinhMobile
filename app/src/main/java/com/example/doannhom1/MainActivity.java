@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         //
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Đồ án nhóm 1");
-        actionBar.setDisplayHomeAsUpEnabled(true);
         mnBottom.setOnItemSelectedListener(getListener());
     }
 

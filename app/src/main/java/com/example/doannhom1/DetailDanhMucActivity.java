@@ -43,8 +43,14 @@ public class DetailDanhMucActivity extends AppCompatActivity implements MonAnAda
         GridLayoutManager gridLayoutManager = new GridLayoutManager(DetailDanhMucActivity.this, 3);
         rvListMonAnC.setAdapter(monAnAdapter);
         rvListMonAnC.setLayoutManager(gridLayoutManager);
+        assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

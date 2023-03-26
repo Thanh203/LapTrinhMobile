@@ -36,6 +36,8 @@ public class DetailMonAnActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_mon_an);
         mnBottom = findViewById(R.id.navMonAn);
+
+        assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -46,6 +48,11 @@ public class DetailMonAnActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(name);
         ivAnhMonAnC.setImageBitmap(Utils.converToBitmapFromAssets(getBaseContext(), img));
         mnBottom.setOnItemSelectedListener(getListener());
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
     @NonNull
     private NavigationBarView.OnItemSelectedListener getListener() {
