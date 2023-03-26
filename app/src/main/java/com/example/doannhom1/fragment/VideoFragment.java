@@ -1,5 +1,6 @@
 package com.example.doannhom1.fragment;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,7 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
+import com.example.doannhom1.DetailMonAnActivity;
 import com.example.doannhom1.R;
 
 /**
@@ -25,8 +29,10 @@ public class VideoFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    public VideoFragment() {
+    String video;
+    VideoView vvVideoC;
+    public VideoFragment(String video) {
+        this.video = video;
         // Required empty public constructor
     }
 
@@ -39,8 +45,8 @@ public class VideoFragment extends Fragment {
      * @return A new instance of fragment VideoFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static VideoFragment newInstance(String param1, String param2) {
-        VideoFragment fragment = new VideoFragment();
+    public static VideoFragment newInstance(String param1, String param2, String video) {
+        VideoFragment fragment = new VideoFragment(video);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +67,15 @@ public class VideoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_video, container, false);
+        View view = inflater.inflate(R.layout.fragment_video, container, false);
+        vvVideoC = view.findViewById(R.id.vvVideo);
+        Uri uri = Uri.parse(video);
+        vvVideoC.setVideoURI(uri);
+        MediaController mediaController = new MediaController(getActivity());
+        mediaController.setAnchorView(vvVideoC);
+        mediaController.setMediaPlayer(vvVideoC);
+        vvVideoC.setMediaController(mediaController);
+        vvVideoC.start();
+        return view;
     }
 }

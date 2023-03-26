@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.example.doannhom1.fragment.CaNhanFragment;
 import com.example.doannhom1.fragment.CheBienFragment;
@@ -25,16 +28,16 @@ public class DetailMonAnActivity extends AppCompatActivity {
     TextView tvNoiDungC;
     ImageView ivAnhMonAnC;
     BottomNavigationView mnBottom;
-    TextView tvNguyenLieu;
+    VideoView vvVideoC;
     private TabLayout mtabLayout;
     private ViewPager mViewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_mon_an);
-        //mnBottom = findViewById(R.id.navMonAn);
-        mtabLayout = findViewById(R.id.navMonAn);
-        mViewPager =findViewById(R.id.view_pager);
+        mnBottom = findViewById(R.id.navMonAn);
+        //mtabLayout = findViewById(R.id.navMonAn);
+        //mViewPager =findViewById(R.id.view_pager);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -52,15 +55,20 @@ public class DetailMonAnActivity extends AppCompatActivity {
         return new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                //tvNoiDungC = findViewById(R.id.tvNoiDung);
+//                vvVideoC = findViewById(R.id.vvVideo);
                 switch (item.getItemId()) {
                     case R.id.mnNguyenLieu:
-                        loadFragment(new NguyenLieuFragment());
+                        String nguyenLieu = getIntent().getStringExtra("NguyenLieu");
+                        loadFragment(new NguyenLieuFragment(nguyenLieu));
                         return true;
                     case R.id.mnCheBien:
-                        loadFragment(new CheBienFragment());
+                        String cheBien = getIntent().getStringExtra("CheBien");
+                        loadFragment(new CheBienFragment(cheBien));
                         return true;
                     case R.id.mnVideo:
-                        loadFragment(new VideoFragment());
+                        String video = getIntent().getStringExtra("Video");
+                        loadFragment(new VideoFragment(video));
                         return true;
                 }
                 return true;

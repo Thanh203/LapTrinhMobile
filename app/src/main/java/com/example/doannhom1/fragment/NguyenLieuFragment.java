@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.example.doannhom1.R;
 import com.example.doannhom1.model.MonAn;
@@ -32,11 +34,12 @@ public class NguyenLieuFragment extends Fragment  {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    TextView tvNguyenLieuC;
+    String nguyenLieu;
 
-
-
-    public NguyenLieuFragment() {
+    public NguyenLieuFragment(String nguyenLieu) {
         // Required empty public constructor
+        this.nguyenLieu = nguyenLieu;
     }
 
     /**
@@ -48,8 +51,8 @@ public class NguyenLieuFragment extends Fragment  {
      * @return A new instance of fragment NguyenLieuFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static NguyenLieuFragment newInstance(String param1, String param2) {
-        NguyenLieuFragment fragment = new NguyenLieuFragment();
+    public static NguyenLieuFragment newInstance(String param1, String param2, String nguyenLieu) {
+        NguyenLieuFragment fragment = new NguyenLieuFragment(nguyenLieu);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,8 +73,9 @@ public class NguyenLieuFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_nguyen_lieu, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_nguyen_lieu, container, false);
+        tvNguyenLieuC = view.findViewById(R.id.tvNguyenLieu);
+        tvNguyenLieuC.setText(nguyenLieu);
         return view;
     }
 

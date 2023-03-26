@@ -18,6 +18,7 @@ import com.example.doannhom1.model.MonAnAdapter;
 import com.example.doannhom1.model.MonAnDB;
 import com.example.doannhom1.model.MonAnData;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,7 @@ public class DetailDanhMucActivity extends AppCompatActivity implements MonAnAda
     ArrayList<MonAn> lstMonAn;
     MonAnAdapter monAnAdapter;
     MonAnDB monAnDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +53,13 @@ public class DetailDanhMucActivity extends AppCompatActivity implements MonAnAda
         return true;
     }
     @Override
-    public void onItemClick(String name, String img) {
+    public void onItemClick(String name, String img, String nguyenLieu, String cheBien, String video) {
         Intent i = new Intent(this, DetailMonAnActivity.class);
         i.putExtra("TenMonAn", name);
         i.putExtra("Anh", img);
+        i.putExtra("NguyenLieu", nguyenLieu);
+        i.putExtra("CheBien", cheBien);
+        i.putExtra("Video", video);
         startActivity(i);
     }
 

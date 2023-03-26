@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.doannhom1.R;
 
@@ -25,9 +26,11 @@ public class CheBienFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    public CheBienFragment() {
+    String cheBien;
+    TextView tvCheBienC;
+    public CheBienFragment(String cheBien) {
         // Required empty public constructor
+        this.cheBien = cheBien;
     }
 
     /**
@@ -39,8 +42,8 @@ public class CheBienFragment extends Fragment {
      * @return A new instance of fragment CheBienFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CheBienFragment newInstance(String param1, String param2) {
-        CheBienFragment fragment = new CheBienFragment();
+    public static CheBienFragment newInstance(String param1, String param2, String cheBien) {
+        CheBienFragment fragment = new CheBienFragment(cheBien);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +64,9 @@ public class CheBienFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_che_bien, container, false);
+        View view = inflater.inflate(R.layout.fragment_che_bien, container, false);
+        tvCheBienC = view.findViewById(R.id.tvCheBien);
+        tvCheBienC.setText(cheBien);
+        return view;
     }
 }

@@ -44,8 +44,9 @@ public class MonAnAdapter extends RecyclerView.Adapter<MonAnAdapter.MonAnViewHol
 
         holder.imImage.setImageBitmap(Utils.converToBitmapFromAssets(context, item.getAnh()));
         holder.tvName.setText(item.getTenMonAn());
+
         //Set su kien
-        holder.itemView.setOnClickListener(view -> monAnCallback.onItemClick(item.getTenMonAn(), item.getAnh()));
+        holder.itemView.setOnClickListener(view -> monAnCallback.onItemClick(item.getTenMonAn(), item.getAnh(), item.getNguyenLieu(), item.getNoiDung(),item.getVideo()));
     }
 
     @Override
@@ -63,6 +64,6 @@ public class MonAnAdapter extends RecyclerView.Adapter<MonAnAdapter.MonAnViewHol
         }
     }
     public interface MonAnCallback{
-        void onItemClick(String name, String img);
+        void onItemClick(String name, String img, String nguyenLieu, String cheBien, String Video);
     }
 }
