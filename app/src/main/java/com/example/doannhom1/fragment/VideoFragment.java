@@ -1,5 +1,6 @@
 package com.example.doannhom1.fragment;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -69,13 +70,16 @@ public class VideoFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_video, container, false);
         vvVideoC = view.findViewById(R.id.vvVideo);
-        Uri uri = Uri.parse(video);
-        vvVideoC.setVideoURI(uri);
-        MediaController mediaController = new MediaController(getActivity());
-        mediaController.setAnchorView(vvVideoC);
-        mediaController.setMediaPlayer(vvVideoC);
-        vvVideoC.setMediaController(mediaController);
-        vvVideoC.start();
+
+          Uri uri = Uri.parse(video);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+//        vvVideoC.setVideoURI(uri);
+//        MediaController mediaController = new MediaController(getActivity());
+//        mediaController.setAnchorView(vvVideoC);
+//        mediaController.setMediaPlayer(vvVideoC);
+//        vvVideoC.setMediaController(mediaController);
+//        vvVideoC.start();
         return view;
     }
 }
