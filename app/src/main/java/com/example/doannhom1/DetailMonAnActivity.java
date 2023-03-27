@@ -25,22 +25,18 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.tabs.TabLayout;
 
 public class DetailMonAnActivity extends AppCompatActivity {
-    TextView tvNoiDungC;
     ImageView ivAnhMonAnC;
     BottomNavigationView mnBottom;
-    VideoView vvVideoC;
-    private TabLayout mtabLayout;
-    private ViewPager mViewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_mon_an);
         mnBottom = findViewById(R.id.navMonAn);
-
+        String nguyenLieu = getIntent().getStringExtra("NguyenLieu");
+        loadFragment(new NguyenLieuFragment(nguyenLieu));
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         ivAnhMonAnC = this.<ImageView>findViewById(R.id.ivAnhMonAn);
         String name = getIntent().getStringExtra("TenMonAn");
         String img = getIntent().getStringExtra("Anh");

@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mnBottom = findViewById(R.id.navMenu);
-        //
+        getSupportActionBar().setTitle("Trang chủ");
+        loadFragment(new TrangChuFragment());
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Đồ án nhóm 1");
         mnBottom.setOnItemSelectedListener(getListener());
